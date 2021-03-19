@@ -1,0 +1,39 @@
+body {
+    background-color: #f6f6f6;
+}
+
+.header {
+    padding-top: 30px;
+    padding-bottom: 80px;
+    background: rgb(0, 52, 120);
+    background: linear-gradient(205deg, rgba(0, 52, 120, 1) 0%, rgba(2, 71, 162, 1) 80%);
+    color: #fff;
+}
+
+.header p {
+    font-size: 16px;
+}
+
+.table-price-list {
+    background-color: #fff;
+    margin-top: -50px;
+    text-align: center;
+    border-radius: 7px;
+}
+
+table {
+    border-radius: 7px;
+}
+
+.table-price-list .nama-service {
+    text-align: left;
+    font-size: 14px;
+}
+
+.wa {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
