@@ -1,7 +1,20 @@
 body {
     background-color: #f6f6f6;
 }
-
+.end-margin{
+    margin-bottom: 100px;
+}
+.logo-home{
+   background-color: #003478;
+}
+.logo-home img{
+    margin: 0;
+    position: absolute;
+    top: 30%;
+    left: 25%;
+    
+    width: 200px;
+}
 .header {
     padding-top: 30px;
     padding-bottom: 80px;
@@ -9,9 +22,35 @@ body {
     background: linear-gradient(205deg, rgba(0, 52, 120, 1) 0%, rgba(2, 71, 162, 1) 80%);
     color: #fff;
 }
+.button-full{
+    margin-top: 15px;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 50px;
+    background-color: #008000;
+    box-shadow: 0 4px 10px 0 rgba(2, 109, 248, 0.1), 0 2px 20px 0 rgba(0, 0, 0, 0.1);
+}
+.button-full a{
+    text-decoration: none;
+    color: #fff;
+}
+.header-detail-promo{
+    padding-top: 20px;
+    padding-bottom: 400px;
+    background: rgb(0, 52, 120);
+    background: linear-gradient(205deg, rgba(0, 52, 120, 1) 0%, rgba(2, 71, 162, 1) 80%);
+    background-image: url(/assets/img/promo.jpg);
+    background-size: cover;
+    color: #fff;
+}
 
-.header p {
-    font-size: 16px;
+.header-detail-promo a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 30px;
 }
 
 .table-price-list {
@@ -40,19 +79,59 @@ table {
 
 .main-menu{
     position: fixed;
-    right: 0;
     bottom: 0;
     background-color: #fff;
     padding-top: 15px;
     padding-bottom: 15px;
 }
 .main-menu .menu-nav .active{
-    background-color: #003478b4;
+    background-color: #0779e4;
     color: #fff;
     border-radius: 50%;
-    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1), 0 2px 20px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px 0 rgba(2, 109, 248, 0.1), 0 2px 20px 0 rgba(0, 0, 0, 0.1);
 }
 .main-menu .menu-nav ion-icon{
     font-size: 20px;
     padding: 8px;
+    text-decoration: none;
+    color: #000;
 }
+
+.promo-section{
+    margin-top: -60px;
+}
+.card-promo{
+    margin-top: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px 0 rgba(2, 109, 248, 0.1), 0 2px 20px 0 rgba(0, 0, 0, 0.048);
+}
+.card-promo .card-detail-promo{
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.card-promo .card-icon-promo {
+    padding: 10px;
+    text-decoration: none;
+}
+.card-promo .card-icon-promo .icon-promo{
+    font-size: 24px;
+    color: #fecd1a;
+    padding: 30px;
+    border-radius: 35%;
+    background-color: #0779e4;
+}
+.card-promo .text-promo{
+    padding-top: 10px;
+}
+.card-promo .text-promo h2{
+    font-size: 20px;
+    color: #000;
+}
+.card-promo .date-promo{
+    color: #0779e4;
+    font-size: 14px;
+    margin-bottom: 0px;
+}
+
+
