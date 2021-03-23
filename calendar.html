@@ -1,21 +1,372 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Calendar</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="assets/style.css">
+
+    <title>Kalender</title>
 </head>
+
 <body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="assets/img/logo-bg.png" width="30" height="30"
+                class="d-inline-block align-top" alt="">
+            KANCA TEKNIK
+        </a>
+    </nav>
 
+    <div class="container">
+        <h4 class="mt-4 mb-0">Status Hari Ini</h4>
+        <p>Pergunakan hari ini sebaik mungkin.</p>
+        <div class="row mt-3">
+            <div class="col-6">
+                <div class="card" id="rowDharma">
+                    <div class="card-urip text-white">
+                        <img src="" alt="">
+                        DHARMA
+                        <p id="statusUripDharma" class="mb-0 font-weight-light status-urip" ></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card" id="rowPasek">
+                    <div class="card-urip text-white">
+                        PASEK
+                        <p id="statusUripPasek" class="mb-0 font-weight-light status-urip"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-6">
+                <div class="card" id="rowPande">
+                    <div class="card-urip text-white">
+                        PANDE
+                        <p id="statusUripPande" class="mb-0 font-weight-light status-urip"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card" id="rowDwi">
+                    <div class="card-urip text-white">
+                        DWI
+                        <p id="statusUripDwi" class="mb-0 font-weight-light status-urip"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container main-menu">
+        <div class="row menu-nav">
+            <div class="col-3 text-center">
+                <a href="index.html">
+                    <ion-icon name="home-outline"></ion-icon>
+                </a>
+            </div>
+            <div class="col-3 text-center">
+                <a href="price-list.html">
+                    <ion-icon name="flash-outline"></ion-icon>
+                </a>
+            </ion-icon></div>
+            <div class="col-3 text-center">
+                <a href="promo.html">
+                    <ion-icon name="megaphone-outline" ></ion-icon>
+                </a>
+            </div>
+            <div class="col-3 text-center">
+                <a href="calendar.html">
+                    <ion-icon name="calendar-outline" class="active"></ion-icon>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    
 <script>
+    function hitungUrip(tanggal, bulan, tahun) {
+        let februari
+        if (tahun % 4 == 0) {
+            februari = 29;
+        } else {
+            februari = 28;
+        }
+        let jumlahHari;
+        if (bulan == "1") {
+            jumlahHari = tanggal;
+        } else if (bulan == "2") {
+            jumlahHari = 31 + tanggal;
+        } else if (bulan == "3") {
+            jumlahHari = 31 + februari + tanggal;
+        } else if (bulan == "4") {
+            jumlahHari = 62 + februari + tanggal;
+        } else if (bulan == "5") {
+            jumlahHari = 92 + februari + tanggal;
+        } else if (bulan == "6") {
+            jumlahHari = 123 + februari + tanggal;
+        } else if (bulan == "7") {
+            jumlahHari = 153 + februari + tanggal;
+        } else if (bulan == "8") {
+            jumlahHari = 184 + februari + tanggal;
+        } else if (bulan == "9") {
+            jumlahHari = 215 + februari + tanggal;
+        } else if (bulan == "10") {
+            jumlahHari = 254 + februari + tanggal;
+        } else if (bulan == "11") {
+            jumlahHari = 276 + februari + tanggal;
+        } else {
+            jumlahHari = 306 + februari + tanggal;
+        }
 
-function kabisat (tahun){
-    document.writeln("<p>hello ${"tahun"}</p>");
-}
-kabisat(16);
 
+        const a = (tahun - 1) % 4;
+        const q = ((tahun - 1) - a) / 4;
+
+
+        const xx = (jumlahHari + q) % 5;
+
+        let pancawara;
+        let nPancawara;
+        if (xx == 0) {
+            pancawara = {
+                nama: "Umanis",
+                nilai: 5
+            };
+        } else if (xx == 1) {
+            pancawara = {
+                nama: "Paing",
+                nilai: 9
+            };
+        } else if (xx == 2) {
+            pancawara = {
+                nama: "Pon",
+                nilai: 7
+            };
+        } else if (xx == 3) {
+            pancawara = {
+                nama: "Wage",
+                nilai: 4
+            };
+        } else if (xx == 4) {
+            pancawara = {
+                nama: "Kliwon",
+                nilai: 8
+            };
+        }
+
+        const xxx = (jumlahHari + q + tahun) % 7;
+        let saptawara;
+        if (xxx == 0) {
+            saptawara = {
+                nama: "Jumat",
+                nilai: 6
+            };
+        } else if (xxx == 1) {
+            saptawara = {
+                nama: "Sabtu",
+                nilai: 9
+            };
+        } else if (xxx == 2) {
+            saptawara = {
+                nama: "Minggu",
+                nilai: 5
+            };
+        } else if (xxx == 3) {
+            saptawara = {
+                nama: "Senin",
+                nilai: 4
+            };
+        } else if (xxx == 4) {
+            saptawara = {
+                nama: "Selasa",
+                nilai: 3
+            };
+        } else if (xxx == 5) {
+            saptawara = {
+                nama: "Rabu",
+                nilai: 7
+            };
+        } else {
+            saptawara = {
+                nama: "Kamis",
+                nilai: 8
+            };
+        }
+
+        // MENGHITUNG URIP
+        const urip = saptawara.nilai + pancawara.nilai;
+
+        return urip;
+
+    }
+
+
+    const today = {
+        hari: new Date().getDate(),
+        bulan: (new Date().getMonth()) + 1,
+        tahun: new Date().getFullYear()
+    };
+
+    // const today = {
+    //     hari: 25,
+    //     bulan: 4,
+    //     tahun: 2021
+    // };
+
+    const person = {
+        dharma: {
+            nama: "Sudharma Putra",
+            hari: 24,
+            bulan: 12,
+            tahun: 1994
+        },
+        pasek: {
+            nama: "Gede Pasek",
+            hari: 8,
+            bulan: 9,
+            tahun: 1988
+        },
+        dwi: {
+            nama: "Kadek Dwi",
+            hari: 21,
+            bulan: 3,
+            tahun: 1990
+        },
+        pande: {
+            nama: "Pande Sastrawan",
+            hari: 7,
+            bulan: 1,
+            tahun: 1990
+        }
+    }
+
+
+    const uripHariIni = hitungUrip(today.hari, today.bulan, today.tahun);
+
+    const uripDharma = hitungUrip(person.dharma.hari, person.dharma.bulan, person.dharma.tahun) + uripHariIni;
+    const uripPasek = hitungUrip(person.pasek.hari, person.pasek.bulan, person.pasek.tahun) + uripHariIni;
+    const uripPande = hitungUrip(person.pande.hari, person.pande.bulan, person.pande.tahun) + uripHariIni;
+    const uripDwi = hitungUrip(person.dwi.hari, person.dwi.bulan, person.dwi.tahun) + uripHariIni;
+
+    switch(uripDharma%4){
+        case 1 :
+            document.getElementById("rowDharma").classList.add('bg-primary');
+            document.getElementById("statusUripDharma").textContent += "Guru";;
+            break;
+        case 2 :
+            document.getElementById("rowDharma").classList.add('bg-primary');
+            document.getElementById("statusUripDharma").textContent += "Ratu";;
+            break;
+        case 3 :
+            document.getElementById("rowDharma").classList.add('bg-danger');
+            document.getElementById("statusUripDharma").textContent += "Lara";;
+            break;
+        case 4 :
+            document.getElementById("rowDharma").classList.add('bg-danger');
+            document.getElementById("statusUripDharma").textContent += "Pati";;
+            break;
+        default :
+            document.getElementById("rowDharma").classList.add('bg-danger');
+            document.getElementById("statusUripDharma").textContent += "Pati";;
+            break;
+    }
+
+    switch(uripPasek%4){
+        case 1 :
+            document.getElementById("rowPasek").classList.add('bg-primary');
+            document.getElementById("statusUripPasek").textContent += "Guru";;
+            break;
+        case 2 :
+            document.getElementById("rowPasek").classList.add('bg-primary');
+            document.getElementById("statusUripPasek").textContent += "Ratu";;
+            break;
+        case 3 :
+            document.getElementById("rowPasek").classList.add('bg-danger');
+            document.getElementById("statusUripPasek").textContent += "Lara";;
+            break;
+        case 4 :
+            document.getElementById("rowPasek").classList.add('bg-danger');
+            document.getElementById("statusUripPasek").textContent += "Pati";;
+            break;
+        default :
+            document.getElementById("rowPasek").classList.add('bg-danger');
+            document.getElementById("statusUripPasek").textContent += "Pati";;
+            break;
+    }
+
+    switch(uripPande%4){
+        case 1 :
+            document.getElementById("rowPande").classList.add('bg-primary');
+            document.getElementById("statusUripPande").textContent += "Guru";;
+            break;
+        case 2 :
+            document.getElementById("rowPande").classList.add('bg-primary');
+            document.getElementById("statusUripPande").textContent += "Ratu";;
+            break;
+        case 3 :
+            document.getElementById("rowPande").classList.add('bg-danger');
+            document.getElementById("statusUripPande").textContent += "Lara";;
+            break;
+        case 4 :
+            document.getElementById("rowPande").classList.add('bg-danger');
+            document.getElementById("statusUripPande").textContent += "Pati";;
+            break;
+        default :
+            document.getElementById("rowPande").classList.add('bg-danger');
+            document.getElementById("statusUripPande").textContent += "Pati";;
+            break;
+    }
+
+    switch(uripDwi%4){
+        case 1 :
+            document.getElementById("rowDwi").classList.add('bg-primary');
+            document.getElementById("statusUripDwi").textContent += "Guru";;
+            break;
+        case 2 :
+            document.getElementById("rowDwi").classList.add('bg-primary');
+            document.getElementById("statusUripDwi").textContent += "Ratu";;
+            break;
+        case 3 :
+            document.getElementById("rowDwi").classList.add('bg-danger');
+            document.getElementById("statusUripDwi").textContent += "Lara";;
+            break;
+        case 4 :
+            document.getElementById("rowDwi").classList.add('bg-danger');
+            document.getElementById("statusUripDwi").textContent += "Pati";;
+            break;
+        default :
+            document.getElementById("rowDwi").classList.add('bg-danger');
+            document.getElementById("statusUripDwi").textContent += "Pati";;
+            break;
+    }
+    
+    
 
 </script>
 </body>
+
 </html>
