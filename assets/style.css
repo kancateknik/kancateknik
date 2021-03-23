@@ -140,4 +140,12 @@ table {
     padding: 20px 0px;
     text-align: center;
 }
-
+.status-urip{
+    font-size: 12px;
+}
+.bg-danger{
+    background-color: #ea2c62 !important;
+}
+.bg-primary{
+    background-color: #3e64ff !important;
+}

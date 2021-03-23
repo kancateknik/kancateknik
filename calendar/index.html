@@ -15,11 +15,15 @@
 
 <body>
     <div class="container">
-        <div class="row">
+        <h4 class="mt-4 mb-0">Status Hari Ini</h4>
+        <p>Pergunakan hari ini sebaik mungkin.</p>
+        <div class="row mt-3">
             <div class="col-6">
                 <div class="card" id="rowDharma">
                     <div class="card-urip text-white">
+                        <img src="" alt="">
                         DHARMA
+                        <p id="statusUripDharma" class="mb-0 font-weight-light status-urip" ></p>
                     </div>
                 </div>
             </div>
@@ -27,29 +31,33 @@
                 <div class="card" id="rowPasek">
                     <div class="card-urip text-white">
                         PASEK
+                        <p id="statusUripPasek" class="mb-0 font-weight-light status-urip"></p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row mt-3">
             <div class="col-6">
-                <div class="card" id="rowDharma">
+                <div class="card" id="rowPande">
                     <div class="card-urip text-white">
                         PANDE
+                        <p id="statusUripPande" class="mb-0 font-weight-light status-urip"></p>
                     </div>
                 </div>
             </div>
             <div class="col-6">
-                <div class="card" id="rowDharma">
+                <div class="card" id="rowDwi">
                     <div class="card-urip text-white">
                         DWI
+                        <p id="statusUripDwi" class="mb-0 font-weight-light status-urip"></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    
 <script>
     function hitungUrip(tanggal, bulan, tahun) {
         let februari
@@ -174,6 +182,12 @@
         tahun: new Date().getFullYear()
     };
 
+    // const today = {
+    //     hari: 25,
+    //     bulan: 4,
+    //     tahun: 2021
+    // };
+
     const person = {
         dharma: {
             nama: "Sudharma Putra",
@@ -186,33 +200,124 @@
             hari: 8,
             bulan: 9,
             tahun: 1988
+        },
+        dwi: {
+            nama: "Kadek Dwi",
+            hari: 21,
+            bulan: 3,
+            tahun: 1990
+        },
+        pande: {
+            nama: "Pande Sastrawan",
+            hari: 7,
+            bulan: 1,
+            tahun: 1990
         }
     }
 
-    function urip(hari, bulan, tahun){
-        const uripHariIni = hitungUrip(today.hari, today.bulan, today.tahun);
-        const uripOrang = hitungUrip(hari, bulan, tahun);
-        const uripTotal = (uripHariIni + uripOrang) % 4;
 
-        return uripTotal
+    const uripHariIni = hitungUrip(today.hari, today.bulan, today.tahun);
+
+    const uripDharma = hitungUrip(person.dharma.hari, person.dharma.bulan, person.dharma.tahun) + uripHariIni;
+    const uripPasek = hitungUrip(person.pasek.hari, person.pasek.bulan, person.pasek.tahun) + uripHariIni;
+    const uripPande = hitungUrip(person.pande.hari, person.pande.bulan, person.pande.tahun) + uripHariIni;
+    const uripDwi = hitungUrip(person.dwi.hari, person.dwi.bulan, person.dwi.tahun) + uripHariIni;
+
+    switch(uripDharma%4){
+        case 1 :
+            document.getElementById("rowDharma").classList.add('bg-primary');
+            document.getElementById("statusUripDharma").textContent += "Guru";;
+            break;
+        case 2 :
+            document.getElementById("rowDharma").classList.add('bg-primary');
+            document.getElementById("statusUripDharma").textContent += "Ratu";;
+            break;
+        case 3 :
+            document.getElementById("rowDharma").classList.add('bg-danger');
+            document.getElementById("statusUripDharma").textContent += "Lara";;
+            break;
+        case 4 :
+            document.getElementById("rowDharma").classList.add('bg-danger');
+            document.getElementById("statusUripDharma").textContent += "Pati";;
+            break;
+        default :
+            document.getElementById("rowDharma").classList.add('bg-danger');
+            document.getElementById("statusUripDharma").textContent += "Pati";;
+            break;
+    }
+
+    switch(uripPasek%4){
+        case 1 :
+            document.getElementById("rowPasek").classList.add('bg-primary');
+            document.getElementById("statusUripPasek").textContent += "Guru";;
+            break;
+        case 2 :
+            document.getElementById("rowPasek").classList.add('bg-primary');
+            document.getElementById("statusUripPasek").textContent += "Ratu";;
+            break;
+        case 3 :
+            document.getElementById("rowPasek").classList.add('bg-danger');
+            document.getElementById("statusUripPasek").textContent += "Lara";;
+            break;
+        case 4 :
+            document.getElementById("rowPasek").classList.add('bg-danger');
+            document.getElementById("statusUripPasek").textContent += "Pati";;
+            break;
+        default :
+            document.getElementById("rowPasek").classList.add('bg-danger');
+            document.getElementById("statusUripPasek").textContent += "Pati";;
+            break;
+    }
+
+    switch(uripPande%4){
+        case 1 :
+            document.getElementById("rowPande").classList.add('bg-primary');
+            document.getElementById("statusUripPande").textContent += "Guru";;
+            break;
+        case 2 :
+            document.getElementById("rowPande").classList.add('bg-primary');
+            document.getElementById("statusUripPande").textContent += "Ratu";;
+            break;
+        case 3 :
+            document.getElementById("rowPande").classList.add('bg-danger');
+            document.getElementById("statusUripPande").textContent += "Lara";;
+            break;
+        case 4 :
+            document.getElementById("rowPande").classList.add('bg-danger');
+            document.getElementById("statusUripPande").textContent += "Pati";;
+            break;
+        default :
+            document.getElementById("rowPande").classList.add('bg-danger');
+            document.getElementById("statusUripPande").textContent += "Pati";;
+            break;
+    }
+
+    switch(uripDwi%4){
+        case 1 :
+            document.getElementById("rowDwi").classList.add('bg-primary');
+            document.getElementById("statusUripDwi").textContent += "Guru";;
+            break;
+        case 2 :
+            document.getElementById("rowDwi").classList.add('bg-primary');
+            document.getElementById("statusUripDwi").textContent += "Ratu";;
+            break;
+        case 3 :
+            document.getElementById("rowDwi").classList.add('bg-danger');
+            document.getElementById("statusUripDwi").textContent += "Lara";;
+            break;
+        case 4 :
+            document.getElementById("rowDwi").classList.add('bg-danger');
+            document.getElementById("statusUripDwi").textContent += "Pati";;
+            break;
+        default :
+            document.getElementById("rowDwi").classList.add('bg-danger');
+            document.getElementById("statusUripDwi").textContent += "Pati";;
+            break;
     }
     
+    
 
-
-    const uripDharma = urip(person.dharma.hari, person.dharma.bulan, person.dharma.tahun);
-
-    if(uripDharma%2 == 0){
-        document.getElementById("rowDharma").classList.add('bg-primary');
-    }else{
-        document.getElementById("rowDharma").classList.add('bg-danger');
-    }
-
-    const uripPasek = urip(person.pasek.hari, person.pasek.bulan, person.pasek.tahun);
-    if(uripPasek%2 == 0){
-        document.getElementById("rowPasek").classList.add('bg-primary');
-    }else{
-        document.getElementById("rowPasek").classList.add('bg-danger');
-    }
+    
 
 
 
