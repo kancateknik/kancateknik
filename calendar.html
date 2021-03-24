@@ -27,7 +27,7 @@
         <p>Pergunakan hari ini sebaik mungkin.</p>
         <div class="row mt-3">
             <div class="col-6">
-                <div class="card" id="rowDharma">
+                <div id="rowDharma">
                     <div class="card-urip text-white">
                         <img src="" alt="">
                         DHARMA
@@ -71,12 +71,13 @@
         <div class="container-calendar ">
             <div class="calendar">
               <div class="month">
-                <i class="fas fa-angle-left prev">o</i>
+                <ion-icon name="arrow-back-outline" class="fas fa-angle-left prev"></ion-icon>
                 <div class="date">
+                    Urip 18
                   <h1></h1>
                   <p></p>
                 </div>
-                <i class="fas fa-angle-right next">o</i>
+                <ion-icon name="arrow-forward-outline" class="fas fa-angle-right next"></ion-icon>
               </div>
               <div class="weekdays">
                 <div>Sun</div>
@@ -145,11 +146,7 @@
      
 
 
-    const today = {
-        hari: new Date().getDate(),
-        bulan: (new Date().getMonth()) + 1,
-        tahun: new Date().getFullYear()
-    };
+    
 
     // const today = {
     //     hari: 25,
@@ -157,63 +154,7 @@
     //     tahun: 2021
     // };
 
-    const person = {
-        dharma: {
-            nama: "Sudharma Putra",
-            hari: 24,
-            bulan: 12,
-            tahun: 1994
-        },
-        pasek: {
-            nama: "Gede Pasek",
-            hari: 8,
-            bulan: 9,
-            tahun: 1988
-        },
-        dwi: {
-            nama: "Kadek Dwi",
-            hari: 21,
-            bulan: 3,
-            tahun: 1990
-        },
-        pande: {
-            nama: "Pande Sastrawan",
-            hari: 7,
-            bulan: 1,
-            tahun: 1990
-        }
-    }
-
-
-    const uripHariIni = hitungUrip(today.hari, today.bulan, today.tahun);
-
-    const uripDharma = hitungUrip(person.dharma.hari, person.dharma.bulan, person.dharma.tahun) + uripHariIni;
-    const uripPasek = hitungUrip(person.pasek.hari, person.pasek.bulan, person.pasek.tahun) + uripHariIni;
-    const uripPande = hitungUrip(person.pande.hari, person.pande.bulan, person.pande.tahun) + uripHariIni;
-    const uripDwi = hitungUrip(person.dwi.hari, person.dwi.bulan, person.dwi.tahun) + uripHariIni;
-
-    switch(uripDharma%4){
-        case 1 :
-            document.getElementById("rowDharma").classList.add('bg-primary');
-            document.getElementById("statusUripDharma").textContent += "Guru";;
-            break;
-        case 2 :
-            document.getElementById("rowDharma").classList.add('bg-primary');
-            document.getElementById("statusUripDharma").textContent += "Ratu";;
-            break;
-        case 3 :
-            document.getElementById("rowDharma").classList.add('bg-danger');
-            document.getElementById("statusUripDharma").textContent += "Lara";;
-            break;
-        case 4 :
-            document.getElementById("rowDharma").classList.add('bg-danger');
-            document.getElementById("statusUripDharma").textContent += "Pati";;
-            break;
-        default :
-            document.getElementById("rowDharma").classList.add('bg-danger');
-            document.getElementById("statusUripDharma").textContent += "Pati";;
-            break;
-    }
+    
 
     switch(uripPasek%4){
         case 1 :

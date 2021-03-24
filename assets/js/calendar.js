@@ -1,3 +1,10 @@
+const today = {
+    hari: new Date().getDate(),
+    bulan: (new Date().getMonth()) + 1,
+    tahun: new Date().getFullYear()
+};
+
+
 function hitungUrip(tanggal, bulan, tahun) {
     let februari
     if (tahun % 4 == 0) {
@@ -31,9 +38,6 @@ function hitungUrip(tanggal, bulan, tahun) {
     } else {
         jumlahHari = 306 + februari + tanggal;
     }
-
-
-    
 
 
     const a = (tahun - 1) % 4;
@@ -117,6 +121,70 @@ function hitungUrip(tanggal, bulan, tahun) {
 
 }
 
+const person = {
+    dharma: {
+        nama: "Sudharma Putra",
+        hari: 24,
+        bulan: 12,
+        tahun: 1994
+    },
+    pasek: {
+        nama: "Gede Pasek",
+        hari: 8,
+        bulan: 9,
+        tahun: 1988
+    },
+    dwi: {
+        nama: "Kadek Dwi",
+        hari: 21,
+        bulan: 3,
+        tahun: 1990
+    },
+    pande: {
+        nama: "Pande Sastrawan",
+        hari: 7,
+        bulan: 1,
+        tahun: 1990
+    }
+}
+
+
+const uripHariIni = hitungUrip(today.hari, today.bulan, today.tahun);
+
+const uripDharma = hitungUrip(person.dharma.hari, person.dharma.bulan, person.dharma.tahun) + uripHariIni;
+const uripPasek = hitungUrip(person.pasek.hari, person.pasek.bulan, person.pasek.tahun) + uripHariIni;
+const uripPande = hitungUrip(person.pande.hari, person.pande.bulan, person.pande.tahun) + uripHariIni;
+const uripDwi = hitungUrip(person.dwi.hari, person.dwi.bulan, person.dwi.tahun) + uripHariIni;
+
+
+switch(uripDharma%4){
+    case 1 :
+        document.getElementById("rowDharma").classList.add('bg-primary');
+        document.getElementById("statusUripDharma").textContent += "Guru";;
+        break;
+    case 2 :
+        document.getElementById("rowDharma").classList.add('bg-primary');
+        document.getElementById("statusUripDharma").textContent += "Ratu";;
+        break;
+    case 3 :
+        document.getElementById("rowDharma").classList.add('bg-danger');
+        document.getElementById("statusUripDharma").textContent += "Lara";;
+        break;
+    case 4 :
+        document.getElementById("rowDharma").classList.add('bg-danger');
+        document.getElementById("statusUripDharma").textContent += "Pati";;
+        break;
+    default :
+        document.getElementById("rowDharma").classList.add('bg-danger');
+        document.getElementById("statusUripDharma").textContent += "Pati";;
+        break;
+}
+
+
+
+
+
+
 
 
 const date = new Date();
@@ -180,34 +248,17 @@ const renderCalendar = () => {
     ) {
       days += `<div class="today">${i}</div>`;
     } else {
-        const aaa = hitungUrip(i, 03, 2021);
-        switch(uripDharma%4){
+        const aaa = hitungUrip(i, 03, 2021) + hitungUrip(person.dharma.hari, person.dharma.bulan, person.dharma.tahun);
+        switch(aaa%4){
             case 1 :
-                document.getElementById("rowDharma").classList.add('bg-primary');
-                document.getElementById("statusUripDharma").textContent += "Guru";
-                days += `<div class="merah ${aaa}">${i}</div>`;
-                break;
             case 2 :
-                document.getElementById("rowDharma").classList.add('bg-primary');
-                document.getElementById("statusUripDharma").textContent += "Ratu";
-                days += `<div class="merah ${aaa}">${i}</div>`;
-                break;
-            case 3 :
-                document.getElementById("rowDharma").classList.add('bg-danger');
-                document.getElementById("statusUripDharma").textContent += "Lara";
-                days += `<div class="merah ${aaa}">${i}</div>`;
-                break;
-            case 4 :
-                document.getElementById("rowDharma").classList.add('bg-danger');
-                document.getElementById("statusUripDharma").textContent += "Pati";
-                days += `<div class="merah ${aaa}">${i}</div>`;
+                days += `<div class="hari-biru ${aaa}">${i}</div>`;
                 break;
             default :
-                document.getElementById("rowDharma").classList.add('bg-danger');
-                document.getElementById("statusUripDharma").textContent += "Pati";
-                days += `<div class="merah ${aaa}">${i}</div>`;
+                days += `<div class="hari-merah ${aaa}">${i}</div>`;
                 break;
         }
+        
         
     }
   }
