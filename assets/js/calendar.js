@@ -151,13 +151,13 @@ const person = {
 
 const uripHariIni = hitungUrip(today.hari, today.bulan, today.tahun);
 
-const uripDharma = hitungUrip(person.dharma.hari, person.dharma.bulan, person.dharma.tahun) + uripHariIni;
-const uripPasek = hitungUrip(person.pasek.hari, person.pasek.bulan, person.pasek.tahun) + uripHariIni;
-const uripPande = hitungUrip(person.pande.hari, person.pande.bulan, person.pande.tahun) + uripHariIni;
-const uripDwi = hitungUrip(person.dwi.hari, person.dwi.bulan, person.dwi.tahun) + uripHariIni;
+const uripDharma = hitungUrip(person.dharma.hari, person.dharma.bulan, person.dharma.tahun);
+const uripPasek = hitungUrip(person.pasek.hari, person.pasek.bulan, person.pasek.tahun)
+const uripPande = hitungUrip(person.pande.hari, person.pande.bulan, person.pande.tahun);
+const uripDwi = hitungUrip(person.dwi.hari, person.dwi.bulan, person.dwi.tahun);
 
 
-switch(uripDharma%4){
+switch((uripDharma + uripHariIni) % 4){
     case 1 :
         document.getElementById("rowDharma").classList.add('bg-primary');
         document.getElementById("statusUripDharma").textContent += "Guru";;
@@ -180,10 +180,81 @@ switch(uripDharma%4){
         break;
 }
 
+switch((uripPasek + uripHariIni)%4){
+    case 1 :
+        document.getElementById("rowPasek").classList.add('bg-primary');
+        document.getElementById("statusUripPasek").textContent += "Guru";;
+        break;
+    case 2 :
+        document.getElementById("rowPasek").classList.add('bg-primary');
+        document.getElementById("statusUripPasek").textContent += "Ratu";;
+        break;
+    case 3 :
+        document.getElementById("rowPasek").classList.add('bg-danger');
+        document.getElementById("statusUripPasek").textContent += "Lara";;
+        break;
+    case 4 :
+        document.getElementById("rowPasek").classList.add('bg-danger');
+        document.getElementById("statusUripPasek").textContent += "Pati";;
+        break;
+    default :
+        document.getElementById("rowPasek").classList.add('bg-danger');
+        document.getElementById("statusUripPasek").textContent += "Pati";;
+        break;
+}
+
+switch((uripPande + uripHariIni)%4){
+    case 1 :
+        document.getElementById("rowPande").classList.add('bg-primary');
+        document.getElementById("statusUripPande").textContent += "Guru";;
+        break;
+    case 2 :
+        document.getElementById("rowPande").classList.add('bg-primary');
+        document.getElementById("statusUripPande").textContent += "Ratu";;
+        break;
+    case 3 :
+        document.getElementById("rowPande").classList.add('bg-danger');
+        document.getElementById("statusUripPande").textContent += "Lara";;
+        break;
+    case 4 :
+        document.getElementById("rowPande").classList.add('bg-danger');
+        document.getElementById("statusUripPande").textContent += "Pati";;
+        break;
+    default :
+        document.getElementById("rowPande").classList.add('bg-danger');
+        document.getElementById("statusUripPande").textContent += "Pati";;
+        break;
+}
+
+switch((uripDwi + uripHariIni)%4){
+    case 1 :
+        document.getElementById("rowDwi").classList.add('bg-primary');
+        document.getElementById("statusUripDwi").textContent += "Guru";;
+        break;
+    case 2 :
+        document.getElementById("rowDwi").classList.add('bg-primary');
+        document.getElementById("statusUripDwi").textContent += "Ratu";;
+        break;
+    case 3 :
+        document.getElementById("rowDwi").classList.add('bg-danger');
+        document.getElementById("statusUripDwi").textContent += "Lara";;
+        break;
+    case 4 :
+        document.getElementById("rowDwi").classList.add('bg-danger');
+        document.getElementById("statusUripDwi").textContent += "Pati";;
+        break;
+    default :
+        document.getElementById("rowDwi").classList.add('bg-danger');
+        document.getElementById("statusUripDwi").textContent += "Pati";;
+        break;
+}
 
 
 
 
+
+let uPerson = uripDharma;
+let personName = "Dharma";
 
 
 
@@ -233,7 +304,7 @@ const renderCalendar = () => {
 
   document.querySelector(".date h1").innerHTML = months[date.getMonth()];
 
-  document.querySelector(".date p").innerHTML = new Date().toDateString();
+  document.querySelector(".date p").innerHTML = `Kalender khusu ${personName} </br> ${new Date().toDateString()}`;
 
   let days = "";
 
@@ -241,14 +312,25 @@ const renderCalendar = () => {
     days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
   }
 
+
+
   for (let i = 1; i <= lastDay; i++) {
     if (
       i === new Date().getDate() &&
       date.getMonth() === new Date().getMonth()
     ) {
-      days += `<div class="today">${i}</div>`;
+        let aaa = hitungUrip(i, (date.getMonth()+1), date.getFullYear()) + uPerson;
+        switch(aaa%4){
+            case 1 :
+            case 2 :
+                days += `<div class="today-biru">${i}</div>`;
+                break;
+            default :
+                days += `<div class="today-red">${i}</div>`;
+                break;
+        }
     } else {
-        const aaa = hitungUrip(i, (date.getMonth()+1), date.getFullYear()) + hitungUrip(person.dharma.hari, person.dharma.bulan, person.dharma.tahun);
+        aaa = hitungUrip(i, (date.getMonth()+1), date.getFullYear()) + uPerson;
         switch(aaa%4){
             case 1 :
             case 2 :
@@ -262,6 +344,9 @@ const renderCalendar = () => {
         
     }
   }
+
+
+
 
   for (let j = 1; j <= nextDays; j++) {
     days += `<div class="next-date">${j}</div>`;
@@ -280,3 +365,26 @@ document.querySelector(".next").addEventListener("click", () => {
 });
 
 renderCalendar();
+
+
+function uripPerson(idPerson){
+    if(idPerson == 1){
+        uPerson = uripDharma;
+        personName = "Dharma";
+        renderCalendar();
+    }else if (idPerson == 2){
+        uPerson = uripPasek;
+        personName = "Pasek";
+        renderCalendar();
+    }else if (idPerson == 3){
+        uPerson = uripPande;
+        personName = "Pande";
+        renderCalendar();
+    }else{
+        uPerson = uripDwi;
+        personName = "Dwi";
+        renderCalendar();
+    }
+    
+}
+

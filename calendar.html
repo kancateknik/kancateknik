@@ -73,9 +73,27 @@
               <div class="month">
                 <ion-icon name="arrow-back-outline" class="fas fa-angle-left prev"></ion-icon>
                 <div class="date">
-                    18
-                  <h1></h1>
-                  <p></p>
+                    <h1></h1>
+                    <p></p>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Pilih Urip
+                        </button>
+                        <div class="dropdown-menu">
+                            <button type="button" class="btn dropdown-item" onclick="uripPerson(1)">
+                                Dharma
+                            </button>
+                            <button type="button" class="btn dropdown-item" onclick="uripPerson(4)" >
+                                Dwi
+                            </button>
+                            <button type="button" class="btn dropdown-item" onclick="uripPerson(3)" >
+                                Pande
+                            </button>
+                            <button type="button" class="btn dropdown-item" onclick="uripPerson(2)" >
+                                Pasek
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <ion-icon name="arrow-forward-outline" class="fas fa-angle-right next"></ion-icon>
               </div>
@@ -142,90 +160,12 @@
     <script src="assets/js/urip-perhitungan.js"></script>
     
 <script>
-    
-     
-
-
-    
 
     // const today = {
     //     hari: 25,
     //     bulan: 4,
     //     tahun: 2021
     // };
-
-    
-
-    switch(uripPasek%4){
-        case 1 :
-            document.getElementById("rowPasek").classList.add('bg-primary');
-            document.getElementById("statusUripPasek").textContent += "Guru";;
-            break;
-        case 2 :
-            document.getElementById("rowPasek").classList.add('bg-primary');
-            document.getElementById("statusUripPasek").textContent += "Ratu";;
-            break;
-        case 3 :
-            document.getElementById("rowPasek").classList.add('bg-danger');
-            document.getElementById("statusUripPasek").textContent += "Lara";;
-            break;
-        case 4 :
-            document.getElementById("rowPasek").classList.add('bg-danger');
-            document.getElementById("statusUripPasek").textContent += "Pati";;
-            break;
-        default :
-            document.getElementById("rowPasek").classList.add('bg-danger');
-            document.getElementById("statusUripPasek").textContent += "Pati";;
-            break;
-    }
-
-    switch(uripPande%4){
-        case 1 :
-            document.getElementById("rowPande").classList.add('bg-primary');
-            document.getElementById("statusUripPande").textContent += "Guru";;
-            break;
-        case 2 :
-            document.getElementById("rowPande").classList.add('bg-primary');
-            document.getElementById("statusUripPande").textContent += "Ratu";;
-            break;
-        case 3 :
-            document.getElementById("rowPande").classList.add('bg-danger');
-            document.getElementById("statusUripPande").textContent += "Lara";;
-            break;
-        case 4 :
-            document.getElementById("rowPande").classList.add('bg-danger');
-            document.getElementById("statusUripPande").textContent += "Pati";;
-            break;
-        default :
-            document.getElementById("rowPande").classList.add('bg-danger');
-            document.getElementById("statusUripPande").textContent += "Pati";;
-            break;
-    }
-
-    switch(uripDwi%4){
-        case 1 :
-            document.getElementById("rowDwi").classList.add('bg-primary');
-            document.getElementById("statusUripDwi").textContent += "Guru";;
-            break;
-        case 2 :
-            document.getElementById("rowDwi").classList.add('bg-primary');
-            document.getElementById("statusUripDwi").textContent += "Ratu";;
-            break;
-        case 3 :
-            document.getElementById("rowDwi").classList.add('bg-danger');
-            document.getElementById("statusUripDwi").textContent += "Lara";;
-            break;
-        case 4 :
-            document.getElementById("rowDwi").classList.add('bg-danger');
-            document.getElementById("statusUripDwi").textContent += "Pati";;
-            break;
-        default :
-            document.getElementById("rowDwi").classList.add('bg-danger');
-            document.getElementById("statusUripDwi").textContent += "Pati";;
-            break;
-    }
-    
-    
 
 </script>
 </body>

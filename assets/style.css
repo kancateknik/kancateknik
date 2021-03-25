@@ -244,10 +244,15 @@ table {
     opacity: 0.5;
   }
   
-  .today {
+  .today-biru {
     border-radius: 100px;
     /* border: 1px solid #0779e4; */
     background-color: #0779e4;
+  }
+  .today-red {
+    border-radius: 100px;
+    /* border: 1px solid #0779e4; */
+    background-color: #ea2c62;
   }
   .hari-biru{
     border-radius: 100px;
