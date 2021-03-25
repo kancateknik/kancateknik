@@ -248,14 +248,14 @@ const renderCalendar = () => {
     ) {
       days += `<div class="today">${i}</div>`;
     } else {
-        const aaa = hitungUrip(i, 03, 2021) + hitungUrip(person.dharma.hari, person.dharma.bulan, person.dharma.tahun);
+        const aaa = hitungUrip(i, (date.getMonth()+1), date.getFullYear()) + hitungUrip(person.dharma.hari, person.dharma.bulan, person.dharma.tahun);
         switch(aaa%4){
             case 1 :
             case 2 :
-                days += `<div class="hari-biru ${aaa}">${i}</div>`;
+                days += `<div class="hari-biru">${i}</div>`;
                 break;
             default :
-                days += `<div class="hari-merah ${aaa}">${i}</div>`;
+                days += `<div class="hari-merah">${i}</div>`;
                 break;
         }
         
