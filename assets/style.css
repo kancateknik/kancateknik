@@ -1,6 +1,9 @@
 body {
     background-color: #f6f6f6;
 }
+.container{
+  max-width: 720px;
+}
 .end-margin{
     margin-bottom: 100px;
 }
@@ -78,6 +81,8 @@ table {
 }
 
 .main-menu{
+    width: 100%;
+    max-width: 690px;
     position: fixed;
     bottom: 0;
     background-color: #fff;
