@@ -145,6 +145,12 @@ const person = {
         hari: 7,
         bulan: 1,
         tahun: 1990
+    },
+    nita: {
+        nama: "Nita",
+        hari: 25,
+        bulan: 1,
+        tahun: 2000
     }
 }
 
@@ -155,6 +161,7 @@ const uripDharma = hitungUrip(person.dharma.hari, person.dharma.bulan, person.dh
 const uripPasek = hitungUrip(person.pasek.hari, person.pasek.bulan, person.pasek.tahun)
 const uripPande = hitungUrip(person.pande.hari, person.pande.bulan, person.pande.tahun);
 const uripDwi = hitungUrip(person.dwi.hari, person.dwi.bulan, person.dwi.tahun);
+const uripNita = hitungUrip(person.nita.hari, person.nita.bulan, person.nita.tahun);
 
 
 switch((uripDharma + uripHariIni) % 4){
@@ -246,6 +253,29 @@ switch((uripDwi + uripHariIni)%4){
     default :
         document.getElementById("rowDwi").classList.add('bg-danger');
         document.getElementById("statusUripDwi").textContent += "Pati";;
+        break;
+}
+
+switch((uripNita + uripHariIni)%4){
+    case 1 :
+        document.getElementById("rowNita").classList.add('bg-primary');
+        document.getElementById("statusUripNita").textContent += "Guru";;
+        break;
+    case 2 :
+        document.getElementById("rowNita").classList.add('bg-primary');
+        document.getElementById("statusUripNita").textContent += "Ratu";;
+        break;
+    case 3 :
+        document.getElementById("rowNita").classList.add('bg-danger');
+        document.getElementById("statusUripNita").textContent += "Lara";;
+        break;
+    case 4 :
+        document.getElementById("rowNita").classList.add('bg-danger');
+        document.getElementById("statusUripNita").textContent += "Pati";;
+        break;
+    default :
+        document.getElementById("rowNita").classList.add('bg-danger');
+        document.getElementById("statusUripNita").textContent += "Pati";;
         break;
 }
 
@@ -380,9 +410,13 @@ function uripPerson(idPerson){
         uPerson = uripPande;
         personName = "Pande";
         renderCalendar();
-    }else{
+    }else if (idPerson == 4){
         uPerson = uripDwi;
         personName = "Dwi";
+        renderCalendar();
+    }else{
+        uPerson = uripNita;
+        personName = "Nita";
         renderCalendar();
     }
     

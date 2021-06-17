@@ -4,6 +4,10 @@ body {
 .container{
   max-width: 720px;
 }
+.container-jasa{
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
 .end-margin{
     margin-bottom: 100px;
 }
